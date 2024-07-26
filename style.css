@@ -1,0 +1,124 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+#header{
+    align-items:center;
+    justify-content: center;
+    display:flex;
+    width:100%;
+}
+
+#container{
+    display:flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#navmain{
+    align-items: center;
+    display: flex;
+}
+
+#SelectTask{
+    margin: 10px;
+}
+
+#Variables {
+    overflow: hidden; 
+    margin: 5px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+#slidecontainer {
+    margin: 10px;
+    
+}
+
+#Restitution{
+    margin: 10px;
+}
+
+#DragCoefficient{
+    margin: 10px;
+}
+
+#AngleValue {
+    margin: 10px;
+}
+
+#numberinputs{
+    margin: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#airresistanceinputs{
+    margin: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#velocity{
+    flex-grow: 0;
+    flex-basis: 75px;
+}
+
+#bounce{
+    flex-grow: 0;
+    flex-basis: 75px;
+}
+
+#xx{
+    flex-grow: 0;
+    flex-basis: 75px;
+}
+
+#yy{
+    flex-grow: 0;
+    flex-basis: 75px;
+}
+
+#gravity{
+    flex-grow: 0;
+    flex-basis: 75px;
+}
+
+#height{
+    flex-grow: 0;
+    flex-basis: 75px;
+
+}
+
+#csa{
+    flex-grow: 0;
+    flex-basis: 75px;
+
+}
+
+#density{
+    flex-grow: 0;
+    flex-basis: 80px;
+}
+
+#mass{
+    flex-grow: 0;
+    flex-basis: 80px;
+}
+
+
+#svg{
+    width: 1200px;
+    height: 500px;
+    margin: 10px;
+}
+
+
