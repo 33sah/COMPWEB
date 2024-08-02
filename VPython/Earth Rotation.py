@@ -6,7 +6,7 @@ G = 6.67e-11
 ME = 5.972e24
 RE = 6.378e6
 m = 100
-lat = 40*pi/180
+lat = 0
 lon = 0
 LatN = True
 LongW = True
@@ -15,19 +15,23 @@ distant_light(direction=vector(-1,0,0),color=vector(.9,.9,.9))
 
 #setting lats and longs from input box
 def lati(evt):
-  lat = evt.number
+  global lat
+  lat = evt.number *pi/180
 def long(evt):
-  lon = evt.number
+  global lon
+  lon = evt.number *pi/180
 
 #determining lat and long direction, setting a boolean to true or false to determine signs for vectors
 
 def latDir(evt):
+  global LatN
   if evt.text == "N":
     LatN == True
   else:
     LatN == False
 
 def longDir(evt):
+  global LongW
   if evt.text == "N":
     LongW == True
   else:
