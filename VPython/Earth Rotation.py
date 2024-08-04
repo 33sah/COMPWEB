@@ -4,7 +4,7 @@ import numpy
 
 G = 6.67e-11
 ME = 5.972e24
-RE = 6.378efrom vpython import *
+RE = 6.378e6
 
 
 
