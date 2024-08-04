@@ -1,11 +1,11 @@
+#Web VPython 3.2
 from vpython import *
-import numpy
+
 
 
 G = 6.67e-11
 ME = 5.972e24
 RE = 6.378e6
-
 
 
 G = 6.67e-11
@@ -14,7 +14,7 @@ RE = 6.378e6
 m = 100
 lat = 0
 lon = 0
-theta = 2
+theta = 45
 LatN = True
 LongW = True
 scene.lights=[]
@@ -34,22 +34,35 @@ def long(evt):
 def latDir(evt):
   global LatN
   if evt.text == "N":
-    LatN == True
+    LatN = True
   else:
-    LatN == False
+    LatN = False
 
 def longDir(evt):
   global LongW
-  if evt.text == "N":
-    LongW == True
+  if evt.text == "W":
+    LongW = True
   else:
-    LongW == False 
+    LongW = False 
 
 def setTheta(evt):
   global theta
   theta = float(evt.value) *pi/180 
   ts_caption.text = "Theta = "+"{:1.2f}".format(ts.value) + "\n\n"
 
+#converts lats and longs to cartesian (hopefully)
+def lToCart(la, lo):
+  global LatN ,LongW
+  x= RE*cos(la)*cos(lo)
+  y= RE*cos(la)*sin(lo)
+  z= RE*sin(la)
+  if LongW:
+    x = -x
+  if lo<=pi/2:
+    y = -y
+  if LatN is False:
+    z = -z
+  return x,y,z
 northButton = radio(bind = latDir , text = "N", name = "latDir" , checked = True)
 southButton = radio(bind = latDir , text = "S", name = "latDir")
 westButton =  radio(bind = longDir , text = "W", name = "longDir", checked = True)
@@ -65,7 +78,13 @@ label(pos = vec(0, RE + 30, 0), text = "Enter in longitude + latitude before cli
 Earth = sphere(pos=vector(0,0,0),radius=RE, texture=textures.earth, shininess=0)
 
 scene.pause()
-mass = sphere(pos=RE*vector(-cos(lat),sin(lat),0),radius=RE/20, color=color.yellow, make_trail=True)
+x = lToCart(lat, lon)[0]
+y = lToCart(lat, lon)[1]
+z = lToCart(lat, lon)[2]
+print(x,y,z)
+print(LatN)
+print(LongW)
+mass = sphere(pos=vector(x,y,z),radius=RE/20, color=color.yellow, make_trail=True)
 tilt = 0
 Earth.rotate(origin=vector(0,0,0),axis=vector(0,0,1),angle=tilt)
 Npole = cylinder(pos=vector(0,0,0),axis=1.5*RE*vector(-sin(tilt),cos(tilt),0),radius=0.02*RE)
@@ -76,10 +95,9 @@ mass.p = m*v0*vector(-cos(theta),sin(theta),0)
 t = 0
 dt = 0.5
 w = 2*pi/(24*60**2)*norm(Npole.axis)
-print(theta)
-print(lat)
-print(lon)
-while mag(mass.pos)+1 >= RE -1:
+
+
+while t<1000 :
   rate(500)
   Earth.rotate(origin=vector(0,0,0),axis=w, angle=mag(w)*dt)
   r = mass.pos
@@ -91,8 +109,6 @@ while mag(mass.pos)+1 >= RE -1:
 
 
  
-
-
 
 
 
