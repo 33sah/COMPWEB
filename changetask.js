@@ -153,7 +153,7 @@ function updatepage(input){
             <div id="revealstats">
                 <p class="d-inline-flex gap-1">
                     <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" id="revealbutton">
-                        Run Statistics:
+                        Run Statistics
                     </button>
                 </p>
 
@@ -206,7 +206,7 @@ function updatepage(input){
            <div id="revealstats">
                 <p class="d-inline-flex gap-1">
                     <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" id="revealbutton">
-                        Run Statistics:
+                        Run Statistics
                     </button>
                 </p>
 
@@ -265,7 +265,7 @@ function updatepage(input){
            <div id="revealstats">
                 <p class="d-inline-flex gap-1">
                     <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" id="revealbutton">
-                        Run Statistics:
+                        Run Statistics
                     </button>
                 </p>
 
@@ -317,7 +317,7 @@ function updatepage(input){
            <div id="revealstats">
                 <p class="d-inline-flex gap-1">
                     <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" id="revealbutton">
-                        Run Statistics:
+                        Run Statistics
                     </button>
                 </p>
 
@@ -376,7 +376,7 @@ function updatepage(input){
            <div id="revealstats">
                 <p class="d-inline-flex gap-1">
                     <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" id="revealbutton">
-                        Run Statistics:
+                        Run Statistics
                     </button>
                 </p>
 
@@ -428,7 +428,7 @@ function updatepage(input){
            <div id="revealstats">
                 <p class="d-inline-flex gap-1">
                     <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" id="revealbutton">
-                        Run Statistics:
+                        Run Statistics
                     </button>
                 </p>
 
@@ -481,7 +481,7 @@ function updatepage(input){
            <div id="revealstats">
                 <p class="d-inline-flex gap-1">
                     <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" id="revealbutton">
-                        Run Statistics:
+                        Run Statistics
                     </button>
                 </p>
 
@@ -545,7 +545,7 @@ function updatepage(input){
            <div id="revealstats">
                 <p class="d-inline-flex gap-1">
                     <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" id="revealbutton">
-                        Run Statistics:
+                        Run Statistics
                     </button>
                 </p>
 
@@ -632,7 +632,7 @@ function updatepage(input){
            <div id="revealstats">
                 <p class="d-inline-flex gap-1">
                     <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" id="revealbutton">
-                        Run Statistics:
+                        Run Statistics
                     </button>
                 </p>
 

@@ -27,10 +27,10 @@ function thetamax(height, speed, g) {
 }
 
 function getRandomColor() {
-    const r = Math.floor(Math.random() * 256); // Red
-    const g = Math.floor(Math.random() * 256); // Green
-    const b = Math.floor(Math.random() * 256); // Blue
-    const a = Math.random().toFixed(2); // Alpha (0.0 to 1.0)
+    const r = Math.floor((Math.random() + 0.2) * 256); // Red
+    const g = Math.floor((Math.random() + 0.2)  * 256); // Green
+    const b = Math.floor((Math.random() + 0.2)  * 256); // Blue
+    const a = 1
 
     return `rgba(${r}, ${g}, ${b}, ${a})`;
 }
@@ -283,7 +283,7 @@ function renderingif1(datamin, data1, datamax, databound, peakmin, peak1, peakma
             label: 'Minimum Speed',
             data: datamin,
             borderColor: 'rgba(75, 192, 192, 1)',
-            backgroundColor: 'rgba(75, 75, 75, 0.2)',
+            backgroundColor: getRandomColor(),
             pointRadius: 3,
             pointBackgroundColor: 'rgba(75, 192, 192, 1)',
             fill: false,
@@ -295,17 +295,17 @@ function renderingif1(datamin, data1, datamax, databound, peakmin, peak1, peakma
             borderColor: 'rgba(210, 123, 54, 1)',
             backgroundColor: 'rgba(175, 85, 75, 0.2)',
             pointRadius: 3,
-            pointBackgroundColor: 'rgba(55, 55, 55, 1)',
+            pointBackgroundColor: getRandomColor(),
             fill: false,
             tension: 0.4
         },
         {
             label: 'Bounding Parabola',
             data: databound,
-            borderColor: 'rgba(55, 55, 55, 1)',
-            backgroundColor: 'rgba(75, 75, 75, 0.2)',
+            borderColor: getRandomColor(),
+            backgroundColor: getRandomColor(),
             pointRadius: 3,
-            pointBackgroundColor: 'rgba(55, 55, 55, 1)',
+            pointBackgroundColor: getRandomColor(),
             fill: false,
             tension: 0.4
         },
@@ -313,19 +313,19 @@ function renderingif1(datamin, data1, datamax, databound, peakmin, peak1, peakma
             label: 'Maximum Range',
             data: datamax,
             borderColor: 'rgba(96, 65, 20, 1)',
-            backgroundColor: 'rgba(75, 75, 75, 0.2)',
+            backgroundColor: getRandomColor(),
             pointRadius: 3,
-            pointBackgroundColor: 'rgba(55, 55, 55, 1)',
+            pointBackgroundColor: getRandomColor(),
             fill: false,
             tension: 0.4
         },
         {
             label: 'Peak Minimum Speed',
             data: [peakmin],
-            borderColor: 'rgba(255, 99, 132, 1)',
-            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+            borderColor: getRandomColor(),
+            backgroundColor: getRandomColor(),
             pointRadius: 10,
-            pointBackgroundColor: 'rgba(255, 99, 132, 1)',
+            pointBackgroundColor: getRandomColor(),
             fill: false,
             showLine: true,
             type: 'scatter'
@@ -334,9 +334,9 @@ function renderingif1(datamin, data1, datamax, databound, peakmin, peak1, peakma
             label: 'Peak Bounding Parabola',
             data: [peak1],
             borderColor: 'rgba(15, 119, 22, 1)',
-            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+            backgroundColor: getRandomColor(),
             pointRadius: 10,
-            pointBackgroundColor: 'rgba(215, 199, 22, 1)',
+            pointBackgroundColor: getRandomColor(),
             fill: false,
             showLine: true,
             type: 'scatter'
@@ -344,10 +344,10 @@ function renderingif1(datamin, data1, datamax, databound, peakmin, peak1, peakma
         {
             label: 'Peak Max Range',
             data: [peakmax],
-            borderColor: 'rgba(215, 199, 22, 1)',
-            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+            borderColor: getRandomColor(),
+            backgroundColor: getRandomColor(),
             pointRadius: 10,
-            pointBackgroundColor: 'rgba(215, 199, 22, 1)',
+            pointBackgroundColor: getRandomColor(),
             fill: false,
             showLine: true,
             type: 'scatter'
@@ -356,9 +356,9 @@ function renderingif1(datamin, data1, datamax, databound, peakmin, peak1, peakma
             label: 'Target',
             data: [target],
             borderColor: 'rgba(220, 19, 198, 1)',
-            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+            backgroundColor: getRandomColor(),
             pointRadius: 10,
-            pointBackgroundColor: 'rgba(215, 199, 22, 1)',
+            pointBackgroundColor: getRandomColor(),
             fill: false,
             showLine: true,
             type: 'scatter'
@@ -444,7 +444,7 @@ function renderingif2(datamin, data1, data2, datamax, databound, peakmin, peak1,
             label: 'Minimum Speed',
             data: datamin,
             borderColor: 'rgba(75, 192, 192, 1)',
-            backgroundColor: 'rgba(75, 75, 75, 0.2)',
+            backgroundColor: getRandomColor(),
             pointRadius: 3,
             pointBackgroundColor: 'rgba(75, 192, 192, 1)',
             fill: false,
@@ -453,50 +453,50 @@ function renderingif2(datamin, data1, data2, datamax, databound, peakmin, peak1,
         {
             label: `${chooselabel(results, 0)} Ball`,
             data: data1,
-            borderColor: 'rgba(55, 55, 55, 1)',
-            backgroundColor: 'rgba(75, 75, 75, 0.2)',
+            borderColor: getRandomColor(),
+            backgroundColor: getRandomColor(),
             pointRadius: 3,
-            pointBackgroundColor: 'rgba(55, 55, 55, 1)',
+            pointBackgroundColor: getRandomColor(),
             fill: false,
             tension: 0.4
         },
         {
             label: `${chooselabel(results, 1)} Ball`,
             data: data2,
-            borderColor: 'rgba(55, 55, 55, 1)',
-            backgroundColor: 'rgba(75, 75, 75, 0.2)',
+            borderColor: getRandomColor(),
+            backgroundColor: getRandomColor(),
             pointRadius: 3,
-            pointBackgroundColor: 'rgba(55, 55, 55, 1)',
+            pointBackgroundColor: getRandomColor(),
             fill: false,
             tension: 0.4
         },
         {
             label: 'Bounding Parabola',
             data: databound,
-            borderColor: 'rgba(55, 55, 55, 1)',
-            backgroundColor: 'rgba(75, 75, 75, 0.2)',
+            borderColor: getRandomColor(),
+            backgroundColor: getRandomColor(),
             pointRadius: 3,
-            pointBackgroundColor: 'rgba(55, 55, 55, 1)',
+            pointBackgroundColor: getRandomColor(),
             fill: false,
             tension: 0.4
         },
         {
             label: 'Maximum Range',
             data: datamax,
-            borderColor: 'rgba(55, 55, 55, 1)',
-            backgroundColor: 'rgba(75, 75, 75, 0.2)',
+            borderColor: getRandomColor(),
+            backgroundColor: getRandomColor(),
             pointRadius: 3,
-            pointBackgroundColor: 'rgba(55, 55, 55, 1)',
+            pointBackgroundColor: getRandomColor(),
             fill: false,
             tension: 0.4
         },
         {
             label: 'Peak Minimum Speed',
             data: [peakmin],
-            borderColor: 'rgba(255, 99, 132, 1)',
-            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+            borderColor: getRandomColor(),
+            backgroundColor: getRandomColor(),
             pointRadius: 10,
-            pointBackgroundColor: 'rgba(255, 99, 132, 1)',
+            pointBackgroundColor: getRandomColor(),
             fill: false,
             showLine: true,
             type: 'scatter'
@@ -504,10 +504,10 @@ function renderingif2(datamin, data1, data2, datamax, databound, peakmin, peak1,
         {
             label: `Peak ${chooselabel(results, 1)} Ball`,
             data: [peak1],
-            borderColor: 'rgba(215, 199, 22, 1)',
-            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+            borderColor: getRandomColor(),
+            backgroundColor: getRandomColor(),
             pointRadius: 10,
-            pointBackgroundColor: 'rgba(215, 199, 22, 1)',
+            pointBackgroundColor: getRandomColor(),
             fill: false,
             showLine: true,
             type: 'scatter'
@@ -515,10 +515,10 @@ function renderingif2(datamin, data1, data2, datamax, databound, peakmin, peak1,
         {
             label: `Peak ${chooselabel(results, 1)} Ball`,
             data: [peak2],
-            borderColor: 'rgba(215, 199, 22, 1)',
-            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+            borderColor: getRandomColor(),
+            backgroundColor: getRandomColor(),
             pointRadius: 10,
-            pointBackgroundColor: 'rgba(215, 199, 22, 1)',
+            pointBackgroundColor: getRandomColor(),
             fill: false,
             showLine: true,
             type: 'scatter'
@@ -526,10 +526,10 @@ function renderingif2(datamin, data1, data2, datamax, databound, peakmin, peak1,
         {
             label: 'Peak Max Range',
             data: [peakmax],
-            borderColor: 'rgba(215, 199, 22, 1)',
-            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+            borderColor: getRandomColor(),
+            backgroundColor: getRandomColor(),
             pointRadius: 10,
-            pointBackgroundColor: 'rgba(215, 199, 22, 1)',
+            pointBackgroundColor: getRandomColor(),
             fill: false,
             showLine: true,
             type: 'scatter'
@@ -537,10 +537,10 @@ function renderingif2(datamin, data1, data2, datamax, databound, peakmin, peak1,
         {
             label: 'Target',
             data: [target],
-            borderColor: 'rgba(215, 199, 22, 1)',
-            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+            borderColor: getRandomColor(),
+            backgroundColor: getRandomColor(),
             pointRadius: 10,
-            pointBackgroundColor: 'rgba(215, 199, 22, 1)',
+            pointBackgroundColor: getRandomColor(),
             fill: false,
             showLine: true,
             type: 'scatter'
