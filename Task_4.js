@@ -70,6 +70,41 @@ function generate(u,angle,g,h){
     const datan = xcoordsn.map((x, i) => ({ x: x, y: ycoordsn[i] }));
     const datam = xcoordsm.map((x, i) => ({ x: x, y: ycoordsm[i] }));
 
+    const displayvalues = document.getElementById("DisplayValues")
+
+    displayvalues.innerHTML = "";
+
+    displayvalues.innerHTML = `<table class="table table-success table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Plot</th>
+                    <th scope="col">Angle (Degrees)</th>
+                    <th scope="col"> Range (m) </th>
+                    <th scope="col">Time of Flight (s)</th>
+                    <th scope="col">Peak X Coordinate (m) </th>
+                    <th scope="col">Peak Y Coordinate (m) </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td> Normal Trajectory</td>
+                    <td>${angle}</td>
+                    <td>${Rnorm}</td>
+                    <td>${Rnorm / (u * Math.cos(radian_angle))}</td>
+                    <td>${peakn.x}}</td>
+                    <td>${peakn.y}</td>
+                </tr>
+                <tr>
+                    <td> Maximum Range </td>
+                    <td> ${Math.round(maxdangle * 100) / 100} </td>
+                    <td>${Rmaxi}</td>
+                    <td>${Rmaxi / (u * Math.cos(maxangle))}</td>
+                    <td>${peakm.x}}</td>
+                    <td>${peakm.y}</td>
+                </tr>
+            </tbody>
+        </table>`;
+
     return [datam, datan, peakm, peakn];
 }
 

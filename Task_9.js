@@ -94,6 +94,44 @@ function generate(u, angle, h, g, CD, CSA, AD, mass){
 
     console.log(data, datanorm, peak, "Peakair:", peakair)
 
+    const displayvalues = document.getElementById("DisplayValues")
+
+    displayvalues.innerHTML = "";
+
+    displayvalues.innerHTML = `<table class="table table-success table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Plot</th>
+                    <th scope="col">Angle (Degrees)</th>
+                    <th scope="col">Range (m) </th>
+                    <th scope="col">Time of Flight (s)</th>
+                    <th scope="col">Time Step (s)</th>
+                    <th scope="col">Peak X Coordinate (m) </th>
+                    <th scope="col">Peak Y Coordinate (m) </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td> Analytical Model </td>
+                    <td>${Math.round(angle * (180 / Math.PI) * 100) / 100}</td>
+                    <td>${R}</td>
+                    <td>${T}</td>
+                    <td> No time step </td>
+                    <td> ${peak.x} </td>
+                    <td> ${peak.y} </td>
+                </tr>
+                <tr>
+                    <td> Air Resistance </td>
+                    <td>${Math.round(angle * (180 / Math.PI) * 100) / 100}</td>
+                    <td>${Rair}</td>
+                    <td>${t}</td>
+                    <td>${dt}</td>
+                    <td> ${peakair.x} </td>
+                    <td> ${peakair.y} </td>
+                </tr>
+            </tbody>
+        </table>`;
+
     return [data, datanorm, peak, peakair]
 }
 

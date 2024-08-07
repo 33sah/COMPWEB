@@ -68,13 +68,13 @@ function generate(X,Y,u,g,h){
     // Max Range and Angle
 
     let maxangle = thetamax(h,u,g)
-    let maxdangle = maxangle * (180 / Math.pi)
+    let maxdangle = maxangle * (180 / Math.PI)
     
     // Finding minimum speed and appropriate angle required to hit the point. 
 
     let minlspeed = Math.sqrt(g) * (Math.sqrt(Y + Math.sqrt(X**2 + Y**2)));
     let minrangle = Math.atan((Y + Math.sqrt(X**2 + Y**2))/(X));
-    let mindangle = minrangle * (180 / Math.pi);
+    let mindangle = minrangle * (180 / Math.PI);
 
     // Variables for quadratic to solve for high and low ball given a launch velocity.
 
@@ -105,7 +105,7 @@ function generate(X,Y,u,g,h){
         
         let R2 = Rfind(u,results[1],h,g);
 
-        for (let i = 0; i <= 1; i+=0.02){
+        for (let i = 0; i <= 1.02; i+=0.02){
             
             let xmin = Rmin * i;
             let x1 = R1 * i;
@@ -129,34 +129,93 @@ function generate(X,Y,u,g,h){
             ycoords1.push(y1)
             ycoords2.push(y2)
         }
-            const datamin = xcoordsmin.map((x, i) => ({ x: x, y: ycoordsmin[i] }));
-            const data1 = xcoords1.map((x, i) => ({ x: x, y: ycoords1[i] }));
-            const data2 = xcoords2.map((x, i) => ({ x: x, y: ycoords2[i] }));
-            const datamax = xcoordsmax.map((x, i) => ({ x: x, y: ycoordsmax[i] }));
-            const databound = xcoordsmax.map((x, i) => ({ x: x, y: ycoordsbound[i] }));
-
-            const peakmin = {
-                x: Apogx(minlspeed, minrangle, g),
-                y: Apogy(minlspeed, minrangle, h, g)
-            };
-
-            const peak1 = {
-                x: Apogx(u, results[0], g),
-                y: Apogy(u, results[0], h, g)
-            };
     
-            const peak2 = {
-                x: Apogx(u, results[1], g),
-                y: Apogy(u, results[1], h, g)
-            };
+        const datamin = xcoordsmin.map((x, i) => ({ x: x, y: ycoordsmin[i] }));
+        const data1 = xcoords1.map((x, i) => ({ x: x, y: ycoords1[i] }));
+        const data2 = xcoords2.map((x, i) => ({ x: x, y: ycoords2[i] }));
+        const datamax = xcoordsmax.map((x, i) => ({ x: x, y: ycoordsmax[i] }));
+        const databound = xcoordsmax.map((x, i) => ({ x: x, y: ycoordsbound[i] }));
 
-            const peakmax = {
-                x: Apogx(u, maxangle, g),
-                y: Apogy(u, maxangle, h, g)
-                
-            };
+        const peakmin = {
+            x: Apogx(minlspeed, minrangle, g),
+            y: Apogy(minlspeed, minrangle, h, g)
+        };
 
-            return [datamin, data1, data2, datamax, databound, peakmin, peak1, peak2, peakmax, results];
+        const peak1 = {
+            x: Apogx(u, results[0], g),
+            y: Apogy(u, results[0], h, g)
+        };
+    
+        const peak2 = {
+            x: Apogx(u, results[1], g),
+            y: Apogy(u, results[1], h, g)
+        };
+
+        const peakmax = {
+            x: Apogx(u, maxangle, g),
+            y: Apogy(u, maxangle, h, g)    
+        };
+
+        // writing data to the DOM
+
+        const displayvalues = document.getElementById("DisplayValues")
+
+        displayvalues.innerHTML = "";
+
+        displayvalues.innerHTML = `<table class="table table-success table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Plot</th>
+                    <th scope="col">Angle (Degrees)</th>
+                    <th scope="col">Speed (<math> <msup> <mi>𝐦𝐬</mi> <mn>-1</mn></msup> </math>) </th>
+                    <th scope="col">Peak X Coordinate (m) </th>
+                    <th scope="col">Peak Y Coordinate (m) </th>
+                    <th scope="col"> Range (m) </th>
+                    <th scope="col">Time of Flight (s) </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td> Minimum Speed </td>
+                    <td>${mindangle}</td>
+                    <td>${minlspeed}</td>
+                    <td>${peakmin.x}}</td>
+                    <td>${peakmin.y}</td>
+                    <td> ${Rmin} </td>
+                    <td>${Rmin / (Math.cos(minrangle) * minlspeed) }</td>
+                </tr>
+                <tr>
+                    <td> ${chooselabel(results, 0)} Ball </td>
+                    <td> ${results[0] * (180 / Math.PI)} </td>
+                    <td>${u}</td>
+                    <td>${peak1.x}}</td>
+                    <td>${peak1.y}</td>
+                    <td> ${R1} </td>
+                    <td>${R1 / (Math.cos(results[0]) * u) }</td>
+
+                </tr>
+                <tr>
+                    <td> ${chooselabel(results, 1)} Ball </td>
+                    <td>${results[1] * (180 / Math.PI)}</td>
+                    <td>${u}</td>
+                    <td>${peak2.x}}</td>
+                    <td>${peak2.y}</td>
+                    <td> ${R2} </td>
+                    <td>${R2 / (Math.cos(results[1]) * u) }</td>
+                </tr>
+                <tr>
+                    <td> Maximum Range </td>
+                    <td> ${Math.round(maxdangle * 100) / 100} </td>
+                    <td>${u}</td>
+                    <td>${peakmax.x}}</td>
+                    <td>${peakmax.y}</td>
+                    <td>${Rmaxi}</td>
+                    <td>${Rmaxi / (u * Math.cos(maxangle))}</td>
+                </tr>
+            </tbody>
+        </table>`; 
+
+        return [datamin, data1, data2, datamax, databound, peakmin, peak1, peak2, peakmax, results];
     }
 
     else { 
@@ -202,7 +261,7 @@ function generate(X,Y,u,g,h){
             y: Apogy(u, maxangle, h, g)
         };
 
-            return [datamin, data1, datamax, databound, peakmin, peak1, peakmax];
+        return [datamin, data1, datamax, databound, peakmin, peak1, peakmax];
     }
 }
 
@@ -233,15 +292,15 @@ function renderingif1(datamin, data1, datamax, databound, peakmin, peak1, peakma
         {
             label: 'Bounding Parabola Trajectory: Rare Edge Case',
             data: data1,
-            borderColor: 'rgba(55, 55, 55, 1)',
-            backgroundColor: 'rgba(75, 75, 75, 0.2)',
+            borderColor: 'rgba(210, 123, 54, 1)',
+            backgroundColor: 'rgba(175, 85, 75, 0.2)',
             pointRadius: 3,
             pointBackgroundColor: 'rgba(55, 55, 55, 1)',
             fill: false,
             tension: 0.4
         },
         {
-            label: 'Actual Bounding Parabola',
+            label: 'Bounding Parabola',
             data: databound,
             borderColor: 'rgba(55, 55, 55, 1)',
             backgroundColor: 'rgba(75, 75, 75, 0.2)',
@@ -253,7 +312,7 @@ function renderingif1(datamin, data1, datamax, databound, peakmin, peak1, peakma
         {
             label: 'Maximum Range',
             data: datamax,
-            borderColor: 'rgba(55, 55, 55, 1)',
+            borderColor: 'rgba(96, 65, 20, 1)',
             backgroundColor: 'rgba(75, 75, 75, 0.2)',
             pointRadius: 3,
             pointBackgroundColor: 'rgba(55, 55, 55, 1)',
@@ -274,7 +333,7 @@ function renderingif1(datamin, data1, datamax, databound, peakmin, peak1, peakma
         {
             label: 'Peak Bounding Parabola',
             data: [peak1],
-            borderColor: 'rgba(215, 199, 22, 1)',
+            borderColor: 'rgba(15, 119, 22, 1)',
             backgroundColor: 'rgba(255, 99, 132, 0.2)',
             pointRadius: 10,
             pointBackgroundColor: 'rgba(215, 199, 22, 1)',
@@ -296,7 +355,7 @@ function renderingif1(datamin, data1, datamax, databound, peakmin, peak1, peakma
         {
             label: 'Target',
             data: [target],
-            borderColor: 'rgba(215, 199, 22, 1)',
+            borderColor: 'rgba(220, 19, 198, 1)',
             backgroundColor: 'rgba(255, 99, 132, 0.2)',
             pointRadius: 10,
             pointBackgroundColor: 'rgba(215, 199, 22, 1)',
@@ -392,7 +451,7 @@ function renderingif2(datamin, data1, data2, datamax, databound, peakmin, peak1,
             tension: 0.4
         },
         {
-            label: `${chooselabel(results, 1)} Ball`,
+            label: `${chooselabel(results, 0)} Ball`,
             data: data1,
             borderColor: 'rgba(55, 55, 55, 1)',
             backgroundColor: 'rgba(75, 75, 75, 0.2)',
@@ -402,7 +461,7 @@ function renderingif2(datamin, data1, data2, datamax, databound, peakmin, peak1,
             tension: 0.4
         },
         {
-            label: `${chooselabel(results, 2)} Ball`,
+            label: `${chooselabel(results, 1)} Ball`,
             data: data2,
             borderColor: 'rgba(55, 55, 55, 1)',
             backgroundColor: 'rgba(75, 75, 75, 0.2)',
@@ -412,7 +471,7 @@ function renderingif2(datamin, data1, data2, datamax, databound, peakmin, peak1,
             tension: 0.4
         },
         {
-            label: 'Actual Bounding Parabola',
+            label: 'Bounding Parabola',
             data: databound,
             borderColor: 'rgba(55, 55, 55, 1)',
             backgroundColor: 'rgba(75, 75, 75, 0.2)',

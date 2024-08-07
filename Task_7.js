@@ -94,6 +94,40 @@ function generate(u, angle, g){
             x: maxminpos[0],
             y: maxminpos[1]
         }
+        `<table class="table table-success table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Plot</th>
+                    <th scope="col">Range (m)</th>
+                    <th scope="col">Time of Flight (s)</th>
+                    <th scope="col"> Maximum / Minimum X (m) </th>
+                    <th scope="col"> Maximum / Minimum Y (m) </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td> Position Plot </td>
+                    <td>${Rx}</td>
+                    <td>${Rx / (u * Math.cos(angle))}</td>
+                    <td>${pos1.x}}</td>
+                    <td>${pos1.y}</td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-success table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Plot</th>
+                    <th scope="col"> Maximum / Minimum Time (s) </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td> Range-Time Plot </td>
+                    <td>${maxmin[0]}}</td>
+                </tr>
+            </tbody>
+        </table>`;
 
         return [datapos, timedata, time1, pos1, maxmin]
 
@@ -123,6 +157,53 @@ function generate(u, angle, g){
             x: maxminpos2[0],
             y: maxminpos2[1]
         }
+
+        const displayvalues = document.getElementById("DisplayValues")
+
+        displayvalues.innerHTML = "";
+
+        displayvalues.innerHTML = `<table class="table table-success table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Plot</th>
+                    <th scope="col">Range (m)</th>
+                    <th scope="col">Time of Flight (s)</th>
+                    <th scope="col">${getname(maxmin, 0)} X (m) </th>
+                    <th scope="col">${getname(maxmin, 0)} Y (m) </th>
+                    <th scope="col">${getname(maxmin, 1)} X (m) </th>
+                    <th scope="col">${getname(maxmin, 1)} Y (m) </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td> Position Plot </td>
+                    <td>${Rx}</td>
+                    <td>${Rx / (u * Math.cos(angle))}</td>
+                    <td>${pos1.x}}</td>
+                    <td>${pos1.y}</td>
+                    <td>${pos2.x}}</td>
+                    <td>${pos2.y}</td>
+
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-success table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Plot</th>
+                    <th scope="col">${getname(maxmin, 0)} Time (s) </th>
+                    <th scope="col">${getname(maxmin, 1)} Time (s) </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td> Range-Time Plot </td>
+                    <td>${maxmin[0]}}</td>
+                    <td>${maxmin[1]}</td>
+
+                </tr>
+            </tbody>
+        </table>`;
 
         return [datapos, timedata, time1, time2, pos1, pos2, maxmin]
 

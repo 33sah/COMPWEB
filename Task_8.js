@@ -35,6 +35,33 @@ function generate(u, angle, g, h, C, N){
     }
 
     console.log(t)
+
+    const displayvalues = document.getElementById("DisplayValues")
+
+    displayvalues.innerHTML = "";
+
+    displayvalues.innerHTML = `<table class="table table-success table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Plot</th>
+                    <th scope="col">Angle (Degrees)</th>
+                    <th scope="col">Range (m) </th>
+                    <th scope="col">Time of Flight (s)</th>
+                    <th scope="col">Time Step (s)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td> Bouncing </td>
+                    <td>${Math.round(angle * (180 / Math.PI) * 100) / 100}</td>
+                    <td>${Math.max(...xcoords)}</td>
+                    <td>${t}</td>
+                    <td>${dt}</td>
+                </tr>
+            </tbody>
+        </table>`;
+
+
     const data = xcoords.map((x, i) => ({ x: x, y: ycoords[i] }));
     return data
 }
@@ -136,7 +163,7 @@ var inputres = document.querySelector('#ResRange')
 var inputbounce = document.querySelector('#bounce')
 
 document.getElementById("run").addEventListener("click", () => {
-    let angle = parseFloat(inputangle.value);
+    let angle = parseFloat(inputangle.value) * (Math.PI / 180);
     let u = parseFloat(inputu.value);
     let height = parseFloat(inputheight.value);
     let g = parseFloat(inputg.value);

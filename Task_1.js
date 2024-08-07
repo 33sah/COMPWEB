@@ -20,10 +20,10 @@ function rendering(coords, velocities){
         datasets: [{
             label: 'Trajectory',
             data: coords,
-            borderColor: 'rgba(75, 192, 192, 1)',
-            backgroundColor: 'rgba(75, 75, 75, 0.2)',
+            borderColor: '#37474f',
+            backgroundColor: '#37474f',
             pointRadius: 3,
-            pointBackgroundColor: 'rgba(75, 192, 192, 1)',
+            pointBackgroundColor: '#37474f',
             fill: false,
             tension: 0.4
         }]
@@ -70,7 +70,7 @@ function rendering(coords, velocities){
                         // Get the corresponding velocity value
                         const velocity = velocities[index];
                         // Return the tooltip label
-                        return `Value: ${context.raw.y}, Velocity: ${velocity}`;
+                        return `Y: ${context.raw.y}, Velocity: ${velocity}`;
                     }
                 }
             },
@@ -132,6 +132,30 @@ function generate(u, angle, height, g) {
         velocity.push(v)
         time += interval;
     }
+
+    // Putting information to the DOM
+
+    const displayvalues = document.getElementById("DisplayValues")
+
+    displayvalues.innerHTML = "";
+
+    displayvalues.innerHTML = `<table class="table table-success table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Plot</th>
+                <th scope="col">Range (m)</th>
+                <th scope="col">Time of Flight (s)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td> Time Step </td>
+                <td>${Math.max(...xcoords)}</td>
+                <td>${time}</td>
+            </tr>
+        </tbody>
+</table>`;
+
 
     // Data transformation for d3.js
     const data = xcoords.map((x, i) => ({ x: x, y: ycoords[i] }));

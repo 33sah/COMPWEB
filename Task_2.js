@@ -39,6 +39,35 @@ function generate(u, angle, height, g){
         y: [Apogy(u, radian_angle, height, g)]
     };
     console.log(peak)
+
+    // Rendering display values
+
+    const displayvalues = document.getElementById("DisplayValues")
+
+    displayvalues.innerHTML = "";
+
+    displayvalues.innerHTML = `<table class="table table-success table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Plot</th>
+                <th scope="col">Range (m)</th>
+                <th scope="col">Time of Flight (s)</th>
+                <th scope="col">Peak X Coordinate (m) </th>
+                <th scope="col">Peak Y Coordinate (m) </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td> Analytical Model </td>
+                <td>${R}</td>
+                <td>${T}</td>
+                <td>${peak.x}}</td>
+                <td>${peak.y}</td>
+
+            </tr>
+        </tbody>
+</table>`;
+
     const data = xcoords.map((x, i) => ({ x: x, y: ycoords[i] }));
     return [data, peak];
 }

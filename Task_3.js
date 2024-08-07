@@ -106,6 +106,50 @@ function generate(X,Y,u,g,h){
             y: Apogy(u, results[1], h, g)
         };
 
+        const displayvalues = document.getElementById("DisplayValues")
+
+        displayvalues.innerHTML = "";
+
+        displayvalues.innerHTML = `<table class="table table-success table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Plot</th>
+                    <th scope="col">Angle (Degrees)</th>
+                    <th scope="col">Speed (<math> <msup> <mi>𝐦𝐬</mi> <mn>-1</mn></msup> </math>) </th>
+                    <th scope="col">Peak X Coordinate (m) </th>
+                    <th scope="col">Peak Y Coordinate (m) </th>
+                    <th scope="col">Time of Flight (s) </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td> Minimum Speed </td>
+                    <td>${mindangle}</td>
+                    <td>${minlspeed}</td>
+                    <td>${peakmin.x}}</td>
+                    <td>${peakmin.y}</td>
+                    <td>${X / (Math.cos(minrangle) * minlspeed) }</td>
+                </tr>
+                <tr>
+                    <td> ${chooselabel(results, 0)} Ball </td>
+                    <td> ${results[0] * (180 / Math.PI)} </td>
+                    <td>${u}</td>
+                    <td>${peak1.x}}</td>
+                    <td>${peak1.y}</td>
+                    <td>${X / (Math.cos(results[0]) * u) }</td>
+
+                </tr>
+                <tr>
+                    <td> ${chooselabel(results, 1)} Ball </td>
+                    <td>${results[1] * (180 / Math.PI)}</td>
+                    <td>${u}</td>
+                    <td>${peak2.x}}</td>
+                    <td>${peak2.y}</td>
+                    <td>${X / (Math.cos(results[1]) * u) }</td>
+                </tr>
+            </tbody>
+        </table>`;
+
         return [datamin, data1, data2, peakmin, peak1, peak2, results];
     }
 
@@ -136,6 +180,41 @@ function generate(X,Y,u,g,h){
             x: Apogx(u, results[0], g),
             y: Apogy(u, results[0], h, g)
         };
+
+        const displayvalues = document.getElementById("DisplayValues")
+
+        displayvalues.innerHTML = "";
+
+        displayvalues.innerHTML = `<table class="table table-success table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Plot</th>
+                    <th scope="col">Angle (Degrees)</th>
+                    <th scope="col">Speed (<math> <msup> <mi>𝐦𝐬</mi> <mn>-1</mn></msup> </math>) </th>
+                    <th scope="col">Peak X Coordinate (m) </th>
+                    <th scope="col">Peak Y Coordinate (m) </th>
+                    <th scope="col">Time of Flight (s) </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td> Minimum Speed </td>
+                    <td>${mindangle}</td>
+                    <td>${minlspeed}</td>
+                    <td>${peakmin.x}}</td>
+                    <td>${peakmin.y}</td>
+                    <td>${X / (Math.cos(minrangle) * minlspeed) }</td>
+                </tr>
+                <tr>
+                    <td> Bounding Parabola; Rare Edge Case </td>
+                    <td> ${results[0] * (180 / Math.PI)} </td>
+                    <td>${u}</td>
+                    <td>${peak1.x}}</td>
+                    <td>${peak1.y}</td>
+                    <td>${X / (Math.cos(results[0]) * u) }</td>
+                </tr>
+            </tbody>
+        </table>`;
 
 
         return [datamin, data1, peakmin, peak1, results];
