@@ -50,28 +50,28 @@ function updatepage(input){
                     <div class="card-body">
                     <h5 class="card-title">Task 2</h5>
                     <h6 class="card-subtitle mb-2 text-body-secondary">Analytical Model</h6>
-                    <p class="card-text">Model using \(y(x)\) equations for the projectile trajectory by defining a equally spaced array of \(x\) coordinate values between \(0\) and the maximum horizontal range with the Apogee (peak). </p>
+                    <p class="card-text">Model using \\(y(x)\\) equations for the projectile trajectory by defining a equally spaced array of \\(x\\) coordinate values between \\(0\\) and the maximum horizontal range with the Apogee (peak). </p>
                     </div>
                 </div>
                 <div class="card" style="width: 18rem;">
                     <div class="card-body">
                     <h5 class="card-title">Task 3</h5>
                     <h6 class="card-subtitle mb-2 text-body-secondary">Target Model</h6>
-                    <p class="card-text">Model defining minimum speed and "high" and "low" ball trajectories for a projectile launched from \((0,0)\) and passing through \((X,Y)\).</p>
+                    <p class="card-text">Model defining minimum speed and "high" and "low" ball trajectories for a projectile launched from \\((0,0)\\) and passing through \\((X,Y)\\).</p>
                     </div>
                 </div>
                 <div class="card" style="width: 18rem;">
                     <div class="card-body">
                     <h5 class="card-title">Task 4</h5>
                     <h6 class="card-subtitle mb-2 text-body-secondary">Maximum Range Model</h6>
-                    <p class="card-text">Model which maximises the range of the launch for given inputs \(u, \, g, \, h\).</p>
+                    <p class="card-text">Model which maximises the range of the launch for given inputs \\(u, \\, g, \\, h\\).</p>
                     </div>
                 </div>
                 <div class="card" style="width: 18rem;">
                     <div class="card-body">
                     <h5 class="card-title">Task 5</h5>
                     <h6 class="card-subtitle mb-2 text-body-secondary">Bounding Parabola Model</h6>
-                    <p class="card-text">Model which combines Tasks 3 and 4 but also defines a bounding parabola for the trajectories given \(u, \, g, \, h\). </p>
+                    <p class="card-text">Model which combines Tasks 3 and 4 but also defines a bounding parabola for the trajectories given \\(u, \\, g, \\, h\\). </p>
                     </div>
                 </div>
                 <div class="card" style="width: 18rem;">
@@ -85,7 +85,7 @@ function updatepage(input){
                     <div class="card-body">
                     <h5 class="card-title">Task 7</h5>
                     <h6 class="card-subtitle mb-2 text-body-secondary">Range Model</h6>
-                    <p class="card-text">Model which shows the Maximum and Minimum values for range when plotted against time with launch angle \(\theta > 70.5 ^{\circ}\).</p>
+                    <p class="card-text">Model which shows the Maximum and Minimum values for range when plotted against time with launch angle \\(\\theta > 70.5 ^{\\circ}\\).</p>
                     </div>
                 </div>
                 <div class="card" style="width: 18rem;">
@@ -106,10 +106,11 @@ function updatepage(input){
                 <div class="card-body">
                   <h5 class="card-title">Extension</h5>
                   <h6 class="card-subtitle mb-2 text-body-secondary">Rotating Planet and Diminshing Altitude Model</h6>
-                  <p class="card-text">The diminishing altitude is simular to that of Task 9, but with functions \(g(y)\) and \(\rho(y)\) being used in place of constants \(g\) and \(\rho\) respectively. For the rotating planet model, we will be using VPython to render this and will take inputs for the Latitude, Longitude and Launch Axis in addition to previously defined parameters. The mathematical derivation behind this is outlined in our LaTeX research paper.  </p>
+                  <p class="card-text">The diminishing altitude is simular to that of Task 9, but with functions \\(g(y)\\) and \\( \\rho(y)\\) being used in place of constants \\(g\\) and \\(\\rho\\) respectively. For the rotating planet model, we will be using VPython to render this and will take inputs for the Latitude, Longitude and Launch Axis in addition to previously defined parameters. The mathematical derivation behind this is outlined in our LaTeX research paper.  </p>
                 </div>
               </div>
             </div>`
+            MathJax.typeset();
             break;
 
         case 1:
@@ -660,7 +661,7 @@ function updatepage(input){
             break;
     }
 
-    if (input == 3 || input == 5){
+    if (input == 0 || input == 3 || input == 5){
         let js = document.createElement("script");
         js.src = `./Task_${input}.js`
         injection.appendChild(js)
