@@ -6,4 +6,5 @@ The 2024 computational challenge had the theme of projectile motion and the full
 
 For our extension task we made a GUI of the main 9 tasks (in this respository labelled accordingly) using HTML and CSS with Bootstrap and ChartJS. 
 
-Furthermore, we made a diminishing altitude model for air resistance as an extension of Task 9 which was used in tandem with a rotational planet model with Latitude, Longitude and Launch Axis inputs. This was rendered via VPython. 
+Furthermore, we made a diminishing altitude model for air resistance as an extension of Task 9 which was used in tandem with a rotational planet model with Latitude, Longitude and Launch Axis inputs. This was rendered via VPython, and converted to Javascipt for integration into the website. 
+
