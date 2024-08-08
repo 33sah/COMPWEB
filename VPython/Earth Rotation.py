@@ -2,7 +2,6 @@
 from vpython import *
 
 
-
 G = 6.67e-11
 ME = 5.972e24
 RE = 6.378e6
@@ -53,16 +52,25 @@ def setTheta(evt):
 #converts lats and longs to cartesian (hopefully)
 def lToCart(la, lo):
   global LatN ,LongW
-  x= RE*cos(la)*cos(lo)
-  y= RE*cos(la)*sin(lo)
-  z= RE*sin(la)
   if LongW:
-    x = -x
-  if lo<=pi/2:
-    y = -y
+    lo = -lo
   if LatN is False:
-    z = -z
+    la = -la  
+  x= RE*sin(la)*sin(lo)
+  y= RE*cos(lo)*sin(la)
+  z= RE*cos(la)
   return x,y,z
+
+def cartToL(xyz): #currently unused, implementation would require more time
+    x       = xyz[0]
+    y       = xyz[1]
+    z       = xyz[2]
+    r       = RE
+    thet   =  acos(z/r)*180/ pi #to degrees
+    phi     =  atan2(x,y)*180/ pi
+
+    return [r,thet,phi]
+
 northButton = radio(bind = latDir , text = "N", name = "latDir" , checked = True)
 southButton = radio(bind = latDir , text = "S", name = "latDir")
 westButton =  radio(bind = longDir , text = "W", name = "longDir", checked = True)
@@ -81,9 +89,6 @@ scene.pause()
 x = lToCart(lat, lon)[0]
 y = lToCart(lat, lon)[1]
 z = lToCart(lat, lon)[2]
-print(x,y,z)
-print(LatN)
-print(LongW)
 mass = sphere(pos=vector(x,y,z),radius=RE/20, color=color.yellow, make_trail=True)
 tilt = 0
 Earth.rotate(origin=vector(0,0,0),axis=vector(0,0,1),angle=tilt)
@@ -97,7 +102,7 @@ dt = 0.5
 w = 2*pi/(24*60**2)*norm(Npole.axis)
 
 
-while t<1000 :
+while mag(mass.pos) >= RE :
   rate(500)
   Earth.rotate(origin=vector(0,0,0),axis=w, angle=mag(w)*dt)
   r = mass.pos
@@ -105,8 +110,7 @@ while t<1000 :
   mass.p = mass.p + F*dt 
   mass.pos = mass.pos + mass.p*dt/m
   t = t + dt
- 
-
+print([mass.pos.x, mass.pos.y, mass.pos.z])
 
  
 
