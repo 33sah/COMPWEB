@@ -642,16 +642,112 @@ function updatepage(input){
             </div>
 
             <canvas id="animgraph"> </canvas>`;
-
-            let drag = document.createElement("script");
-            drag.src = "./dragcoeff.js"
-
-            injection.appendChild(drag)
-
             break;
         
         case 10:
-            injection.innerHTML = ""
+            injection.innerHTML = `<div id = Variables>
+
+            <div id="slidecontainer">
+                <label for="AngleRange" class="form-label">Select Launch Angle (Degrees): </label>
+                <input type="range" min="1" max="90" value="45" step="0.01" class="form-range" id="AngleRange">
+                <output id = "AngleValue"> </output>
+            </div>
+
+            <div id="DragCoefficient">
+                <label for="DCRange" class="form-label">Select Drag Coefficient: </label>
+                <input type="range" min="0" max="3" value="0.5" step="0.01" class="form-range" id="DCRange">
+                <output id = "DCValue"> </output>
+            </div>
+
+            <div id="numberinputs">
+
+               <div class="input-group mb-3" id = "velocitycontainer">
+                    <span class="input-group-text">Launch Velocity:</span>
+                    <input type="number" class="form-control" aria-label="Velocity" id="velocity" value="10" min="0">
+                    <span class="input-group-text"><math display="block"> <msup> <mi>ms</mi> <mn>-1</mn></msup> </math></span>
+                </div>
+
+                <div class="input-group mb-3" id = "heightcontainer">
+                    <span class="input-group-text">Launch Height:</span>
+                    <input type="number" class="form-control" aria-label="Height" id="height" value="0" min="0">
+                    <span class="input-group-text">m</span>
+                </div>
+
+                <div class="input-group mb-3" id = "gcontainer">
+                    <span class="input-group-text">Gravitational Field Strength:</span>
+                    <input type="number" class="form-control" aria-label="Gravity" id="gravity" value="9.81">
+                    <span class="input-group-text"> <math display="block"> <msup> <mi>ms</mi> <mn>-2</mn></msup> </math></span>
+                </div>
+
+            </div>
+
+            <div id="airresistanceinputs">
+                <div class="input-group mb-3" id = "densitycontainer">
+                    <span class="input-group-text">Air Density:</span>
+                    <input type="number" class="form-control" aria-label="Density" id="density" value="1.225" min="0">
+                    <span class="input-group-text"> <math display="block"> <msup> <mi>kgm</mi> <mn>-3</mn></msup> </math></span>
+                </div>
+    
+                <div class="input-group mb-3" id = "csacontainer">
+                    <span class="input-group-text">Cross Sectional Area:</span>
+                    <input type="number" class="form-control" aria-label="CSA" id="csa" value="1" min="0">
+                    <span class="input-group-text"> <math display="block"> <msup> <mi>m</mi> <mn>2</mn></msup> </math></span>
+                </div>
+
+                <div class="input-group mb-3" id = "masscontainer">
+                    <span class="input-group-text">Projectile Mass:</span>
+                    <input type="number" class="form-control" aria-label="Mass" id="mass" value="1" min="0">
+                    <span class="input-group-text"> kg </span>
+                </div>
+
+            </div>
+
+            <div id="densinputs"> 
+                <div class="input-group mb-3" id = "tempcontainer">
+                    <span class="input-group-text">Air Temperature:</span>
+                    <input type="number" class="form-control" aria-label="Temp" id="temp" value="293" min="0">
+                    <span class="input-group-text"> K </span>
+                </div>
+
+                <div class="input-group mb-3" id = "sealeveldenscontainer">
+                    <span class="input-group-text">Sea Level Density:</span>
+                    <input type="number" class="form-control" aria-label="Sealevel" id="sealevel" value="1.225" min="0">
+                    <span class="input-group-text">  <math display="block"> <msup> <mi>kgm</mi> <mn>-3</mn></msup> </math> </span>
+                </div>
+
+                <div class="input-group mb-3" id = "planetmasscontainer">
+                    <span class="input-group-text">Mass of Planet:</span>
+                    <input type="number" class="form-control" aria-label="PlanetMass" id="planetmass" value="5.972" min="0">
+                    <span class="input-group-text">  <math display="block"> <msup> <mi>10</mi> <mn>24</mn> </msup> </math> kg </span>
+                </div>
+
+                <div class="input-group mb-3" id = "planetradcontainer">
+                    <span class="input-group-text">Radius of Planet:</span>
+                    <input type="number" class="form-control" aria-label="PlanetRad" id="planetrad" value="6371" min="0">
+                    <span class="input-group-text">  km </span>
+                </div>
+            </div>
+
+            <button type="button" class="btn btn-outline-dark" id="run">Run</button>
+
+           </div>
+
+           <div id="revealstats">
+                <p class="d-inline-flex gap-1">
+                    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" id="revealbutton">
+                        Run Statistics
+                    </button>
+                </p>
+
+                <div class="collapse" id="collapseExample">
+                    <div class="card card-body" id="DisplayValues"> </div>
+                </div>
+            </div>
+
+            <canvas id="animgraph"> </canvas> 
+            <div id="glowscript" class="glowscript"> </div>
+            <iframe src="https://trinket.io/embed/glowscript/389e2b0e34?outputOnly=true&showInstructions=true" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>`
+            
             break;
     
         default:
@@ -665,6 +761,25 @@ function updatepage(input){
         let js = document.createElement("script");
         js.src = `./Task_${input}.js`
         injection.appendChild(js)
+    }
+
+    else if (input == 9 || input == 10){
+        let drag = document.createElement("script");
+        drag.src = "./dragcoeff.js"
+
+        let jstask = document.createElement("script");
+        jstask.src = `./Task_${input}.js`
+
+        let slider = document.createElement("script");
+        slider.src = "./slider.js"
+
+        injection.appendChild(drag)
+
+        drag.onload = () => {
+
+            injection.appendChild(jstask)
+            injection.appendChild(slider)
+        }
     }
 
     else {

@@ -143,6 +143,13 @@ input[type=range]:hover {
     gap: 10px;
 }
 
+#densinputs{
+    margin: 5px 0;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
 /* General input field styling */
 .input-group .form-control {
     flex-grow: 1;
