@@ -129,7 +129,7 @@ function updatepage(input){
                 <div class="input-group mb-3" id = velocitycontainer>
                     <span class="input-group-text"> Launch Velocity:</span>
                     <input type="number" class="form-control" aria-label="Velocity" id="velocity" value="10" min="0">
-                    <span class="input-group-text"><math display="block"> <msup> <mi>ms</mi> <mn>-1</mn></msup> </math></span>
+                    <span class="input-group-text">\\(ms^{-1}\\)</span>
                 </div>
 
                 <div class="input-group mb-3" id = heightcontainer>
@@ -141,7 +141,7 @@ function updatepage(input){
                 <div class="input-group mb-3" id = gcontainer>
                     <span class="input-group-text"> Gravitational Field Strength:</span>
                     <input type="number" class="form-control" aria-label="Gravity" id="gravity" value="9.81">
-                    <span class="input-group-text"> <math display="block"> <msup> <mi>ms</mi> <mn>-2</mn></msup> </math></span>
+                    <span class="input-group-text"> \\(ms^{-2}\\)</span>
                 </div>
 
             </div>
@@ -163,7 +163,7 @@ function updatepage(input){
             </div>
 
             <canvas id="animgraph"> </canvas>`;
-
+            MathJax.typeset();
             break;
         
         case 2:
@@ -182,7 +182,7 @@ function updatepage(input){
                 <div class="input-group mb-3" id = velocitycontainer>
                     <span class="input-group-text"> Launch Velocity:</span>
                     <input type="number" class="form-control" aria-label="Velocity" id="velocity" value="10" min="0">
-                    <span class="input-group-text"><math display="block"> <msup> <mi>ms</mi> <mn>-1</mn></msup> </math></span>
+                    <span class="input-group-text">\\(ms^{-1}\\)</span>
                 </div>
 
                 <div class="input-group mb-3" id = heightcontainer>
@@ -194,7 +194,7 @@ function updatepage(input){
                 <div class="input-group mb-3" id = gcontainer>
                     <span class="input-group-text"> Gravitational Field Strength:</span>
                     <input type="number" class="form-control" aria-label="Gravity" id="gravity" value="9.81">
-                    <span class="input-group-text"> <math display="block"> <msup> <mi>ms</mi> <mn>-2</mn></msup> </math></span>
+                    <span class="input-group-text"> \\(ms^{-2}\\)</span>
                 </div>
 
             </div>
@@ -216,7 +216,7 @@ function updatepage(input){
             </div>
 
             <canvas id="animgraph"> </canvas>`;
-
+            MathJax.typeset();
             break;
 
         case 3:
@@ -229,7 +229,7 @@ function updatepage(input){
                 <div class="input-group mb-3" id = velocitycontainer>
                     <span class="input-group-text"> Launch Velocity:</span>
                     <input type="number" class="form-control" aria-label="Velocity" id="velocity" value="150" min="0">
-                    <span class="input-group-text"><math display="block"> <msup> <mi>ms</mi> <mn>-1</mn></msup> </math></span>
+                    <span class="input-group-text">\\(ms^{-1}\\)</span>
                 </div>
 
                 <div class="input-group mb-3" id = heightcontainer>
@@ -255,7 +255,7 @@ function updatepage(input){
              <div class="input-group mb-3" id = gcontainer>
                     <span class="input-group-text"> Gravitational Field Strength:</span>
                     <input type="number" class="form-control" aria-label="Gravity" id="gravity" value="9.81">
-                    <span class="input-group-text"> <math display="block"> <msup> <mi>ms</mi> <mn>-2</mn></msup> </math></span>
+                    <span class="input-group-text"> \\(ms^{-2}\\)</span>
              </div>
 
             <button type="button" class="btn btn-outline-dark" id="run">Run</button>
@@ -275,6 +275,7 @@ function updatepage(input){
             </div>
 
             <canvas id="animgraph"> </canvas>`;
+            MathJax.typeset();
             break;
 
         case 4:
@@ -293,7 +294,7 @@ function updatepage(input){
                <div class="input-group mb-3" id = velocitycontainer>
                     <span class="input-group-text"> Launch Velocity:</span>
                     <input type="number" class="form-control" aria-label="Velocity" id="velocity" value="10" min="0">
-                    <span class="input-group-text"><math display="block"> <msup> <mi>ms</mi> <mn>-1</mn></msup> </math></span>
+                    <span class="input-group-text">\\(ms^{-1}\\)</span>
                 </div>
 
                 <div class="input-group mb-3" id = heightcontainer>
@@ -305,7 +306,7 @@ function updatepage(input){
                 <div class="input-group mb-3" id = gcontainer>
                     <span class="input-group-text"> Gravitational Field Strength:</span>
                     <input type="number" class="form-control" aria-label="Gravity" id="gravity" value="9.81">
-                    <span class="input-group-text"> <math display="block"> <msup> <mi>ms</mi> <mn>-2</mn></msup> </math></span>
+                    <span class="input-group-text"> \\(ms^{-2}\\)</span>
                 </div>
 
             </div>
@@ -327,6 +328,7 @@ function updatepage(input){
             </div>
 
             <canvas id="animgraph"> </canvas>`;
+            MathJax.typeset();
             break;
 
         case 5:
@@ -339,7 +341,7 @@ function updatepage(input){
                 <div class="input-group mb-3" id = velocitycontainer>
                     <span class="input-group-text"> Launch Velocity:</span>
                     <input type="number" class="form-control" aria-label="Velocity" id="velocity" value="115" min="0">
-                    <span class="input-group-text"><math display="block"> <msup> <mi>ms</mi> <mn>-1</mn></msup> </math></span>
+                    <span class="input-group-text">\\(ms^{-1}\\)</span>
                 </div>
 
                 <div class="input-group mb-3" id = heightcontainer>
@@ -365,7 +367,7 @@ function updatepage(input){
             <div class="input-group mb-3" id = gcontainer>
                     <span class="input-group-text"> Gravitational Field Strength:</span>
                     <input type="number" class="form-control" aria-label="Gravity" id="gravity" value="9.81">
-                    <span class="input-group-text"> <math display="block"> <msup> <mi>ms</mi> <mn>-2</mn></msup> </math></span>
+                    <span class="input-group-text"> \\(ms^{-2}\\)</span>
             </div>
              
 
@@ -386,6 +388,7 @@ function updatepage(input){
             </div>
 
             <canvas id="animgraph"> </canvas>`;
+            MathJax.typeset();
             break;
         
         case 6:
@@ -404,7 +407,7 @@ function updatepage(input){
                 <div class="input-group mb-3" id = velocitycontainer>
                     <span class="input-group-text"> Launch Velocity:</span>
                     <input type="number" class="form-control" aria-label="Velocity" id="velocity" value="10" min="0">
-                    <span class="input-group-text"><math display="block"> <msup> <mi>ms</mi> <mn>-1</mn></msup> </math></span>
+                    <span class="input-group-text">\\(ms^{-1}\\)</span>
                 </div>
 
                 <div class="input-group mb-3" id = heightcontainer>
@@ -416,7 +419,7 @@ function updatepage(input){
                 <div class="input-group mb-3" id = gcontainer>
                     <span class="input-group-text"> Gravitational Field Strength:</span>
                     <input type="number" class="form-control" aria-label="Gravity" id="gravity" value="9.81">
-                    <span class="input-group-text"> <math display="block"> <msup> <mi>ms</mi> <mn>-2</mn></msup> </math></span>
+                    <span class="input-group-text"> \\(ms^{-2}\\)</span>
                 </div>
 
             </div>
@@ -438,6 +441,7 @@ function updatepage(input){
             </div>
 
             <canvas id="animgraph"> </canvas>`;
+            MathJax.typeset();
             break;
 
 
@@ -457,7 +461,7 @@ function updatepage(input){
                <div class="input-group mb-3" id = velocitycontainer>
                     <span class="input-group-text"> Launch Velocity:</span>
                     <input type="number" class="form-control" aria-label="Velocity" id="velocity" value="10" min="0">
-                    <span class="input-group-text"><math display="block"> <msup> <mi>ms</mi> <mn>-1</mn></msup> </math></span>
+                    <span class="input-group-text">\\(ms^{-1}\\)</span>
                 </div>
 
                 <div class="input-group mb-3" id = heightcontainer>
@@ -469,7 +473,7 @@ function updatepage(input){
                 <div class="input-group mb-3" id = gcontainer>
                     <span class="input-group-text"> Gravitational Field Strength:</span>
                     <input type="number" class="form-control" aria-label="Gravity" id="gravity" value="9.81">
-                    <span class="input-group-text"> <math display="block"> <msup> <mi>ms</mi> <mn>-2</mn></msup> </math></span>
+                    <span class="input-group-text"> \\(ms^{-2}\\)</span>
                 </div>
 
             </div>
@@ -492,6 +496,7 @@ function updatepage(input){
 
             <canvas id="animgraph"> </canvas>
             <canvas id="timeplot"> </canvas>`;
+            MathJax.typeset();
             break;
         
         case 8:
@@ -516,7 +521,7 @@ function updatepage(input){
                <div class="input-group mb-3" id = velocitycontainer>
                     <span class="input-group-text"> Launch Velocity:</span>
                     <input type="number" class="form-control" aria-label="Velocity" id="velocity" value="10" min="0">
-                    <span class="input-group-text"><math display="block"> <msup> <mi>ms</mi> <mn>-1</mn></msup> </math></span>
+                    <span class="input-group-text">\\(ms^{-1}\\)</span>
                 </div>
 
                 <div class="input-group mb-3" id = heightcontainer>
@@ -533,7 +538,7 @@ function updatepage(input){
                 <div class="input-group mb-3" id = gcontainer>
                     <span class="input-group-text"> Gravitational Field Strength:</span>
                     <input type="number" class="form-control" aria-label="Gravity" id="gravity" value="9.81">
-                    <span class="input-group-text"> <math display="block"> <msup> <mi>ms</mi> <mn>-2</mn></msup> </math></span>
+                    <span class="input-group-text"> \\(ms^{-2}\\)</span>
                 </div>
 
             </div>
@@ -560,6 +565,7 @@ function updatepage(input){
             res.src = "./res.js"
 
             injection.appendChild(res)
+            MathJax.typeset();
             
             break;
 
@@ -585,7 +591,7 @@ function updatepage(input){
                <div class="input-group mb-3" id = velocitycontainer>
                     <span class="input-group-text">Launch Velocity:</span>
                     <input type="number" class="form-control" aria-label="Velocity" id="velocity" value="10" min="0">
-                    <span class="input-group-text"><math display="block"> <msup> <mi>ms</mi> <mn>-1</mn></msup> </math></span>
+                    <span class="input-group-text">\\(ms^{-1}\\)</span>
                 </div>
 
                 <div class="input-group mb-3" id = heightcontainer>
@@ -597,7 +603,7 @@ function updatepage(input){
                 <div class="input-group mb-3" id = gcontainer>
                     <span class="input-group-text">Gravitational Field Strength:</span>
                     <input type="number" class="form-control" aria-label="Gravity" id="gravity" value="9.81">
-                    <span class="input-group-text"> <math display="block"> <msup> <mi>ms</mi> <mn>-2</mn></msup> </math></span>
+                    <span class="input-group-text"> \\(ms^{-2}\\)</span>
                 </div>
 
             </div>
@@ -606,13 +612,13 @@ function updatepage(input){
                 <div class="input-group mb-3" id = densitycontainer>
                     <span class="input-group-text">Air Density:</span>
                     <input type="number" class="form-control" aria-label="Density" id="density" value="1.225" min="0">
-                    <span class="input-group-text"> <math display="block"> <msup> <mi>kgm</mi> <mn>-3</mn></msup> </math></span>
+                    <span class="input-group-text"> \\(kgm^{-3}\\)</span>
                 </div>
     
                 <div class="input-group mb-3" id = csacontainer>
                     <span class="input-group-text">Cross Sectional Area:</span>
                     <input type="number" class="form-control" aria-label="CSA" id="csa" value="1" min="0">
-                    <span class="input-group-text"> <math display="block"> <msup> <mi>m</mi> <mn>2</mn></msup> </math></span>
+                    <span class="input-group-text"> \\(m^2\\)</span>
                 </div>
 
                 <div class="input-group mb-3" id = masscontainer>
@@ -642,6 +648,7 @@ function updatepage(input){
             </div>
 
             <canvas id="animgraph"> </canvas>`;
+            MathJax.typeset();
             break;
         
         case 10:
@@ -664,7 +671,7 @@ function updatepage(input){
                <div class="input-group mb-3" id = "velocitycontainer">
                     <span class="input-group-text">Launch Velocity:</span>
                     <input type="number" class="form-control" aria-label="Velocity" id="velocity" value="10" min="0">
-                    <span class="input-group-text"><math display="block"> <msup> <mi>ms</mi> <mn>-1</mn></msup> </math></span>
+                    <span class="input-group-text">\\(ms^{-1}\\)</span>
                 </div>
 
                 <div class="input-group mb-3" id = "heightcontainer">
@@ -676,7 +683,7 @@ function updatepage(input){
                 <div class="input-group mb-3" id = "gcontainer">
                     <span class="input-group-text">Gravitational Field Strength:</span>
                     <input type="number" class="form-control" aria-label="Gravity" id="gravity" value="9.81">
-                    <span class="input-group-text"> <math display="block"> <msup> <mi>ms</mi> <mn>-2</mn></msup> </math></span>
+                    <span class="input-group-text"> \\(ms^{-2}\\)</span>
                 </div>
 
             </div>
@@ -685,13 +692,13 @@ function updatepage(input){
                 <div class="input-group mb-3" id = "densitycontainer">
                     <span class="input-group-text">Air Density:</span>
                     <input type="number" class="form-control" aria-label="Density" id="density" value="1.225" min="0">
-                    <span class="input-group-text"> <math display="block"> <msup> <mi>kgm</mi> <mn>-3</mn></msup> </math></span>
+                    <span class="input-group-text"> \\(kgm^{-3}\\)</span>
                 </div>
     
                 <div class="input-group mb-3" id = "csacontainer">
                     <span class="input-group-text">Cross Sectional Area:</span>
                     <input type="number" class="form-control" aria-label="CSA" id="csa" value="1" min="0">
-                    <span class="input-group-text"> <math display="block"> <msup> <mi>m</mi> <mn>2</mn></msup> </math></span>
+                    <span class="input-group-text"> \\(m^2\\)</span>
                 </div>
 
                 <div class="input-group mb-3" id = "masscontainer">
@@ -712,13 +719,13 @@ function updatepage(input){
                 <div class="input-group mb-3" id = "sealeveldenscontainer">
                     <span class="input-group-text">Sea Level Density:</span>
                     <input type="number" class="form-control" aria-label="Sealevel" id="sealevel" value="1.225" min="0">
-                    <span class="input-group-text">  <math display="block"> <msup> <mi>kgm</mi> <mn>-3</mn></msup> </math> </span>
+                    <span class="input-group-text">  \\(kgm^{-3}\\) </span>
                 </div>
 
                 <div class="input-group mb-3" id = "planetmasscontainer">
                     <span class="input-group-text">Mass of Planet:</span>
                     <input type="number" class="form-control" aria-label="PlanetMass" id="planetmass" value="5.972" min="0">
-                    <span class="input-group-text">  <math display="block"> <msup> <mi>10</mi> <mn>24</mn> </msup> </math> kg </span>
+                    <span class="input-group-text"> \\(10^{24} \\, kg\\)</span>
                 </div>
 
                 <div class="input-group mb-3" id = "planetradcontainer">
@@ -747,7 +754,7 @@ function updatepage(input){
             <canvas id="animgraph"> </canvas> 
             <div id="glowscript" class="glowscript"> </div>
             <iframe src="https://trinket.io/embed/glowscript/389e2b0e34?outputOnly=true&showInstructions=true" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>`
-            
+            MathJax.typeset();
             break;
     
         default:
@@ -809,4 +816,4 @@ radios.forEach((radio, index) => {
     });
 });
 
-// <math display="block"> <msup> <mi>ms</mi> <mn>-1</mn></msup> </math>
+// \\(ms^{-1}\\)
